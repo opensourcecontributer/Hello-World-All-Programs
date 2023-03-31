@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>PHP - Hello, World!</title>
 </head>
 <body>
         <h1>
