@@ -1,94 +1,496 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello World - All Languages 🌍</title>
-<style>
-  body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  h1 {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 1.1em;
-    color: #ccc;
-    margin-bottom: 40px;
-  }
-  .button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-  }
-  a {
-    display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-  }
-  a:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-  }
-  footer {
-    margin-top: 50px;
-    color: #aaa;
-    font-size: 0.9em;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Hello World programs in 30+ programming languages with an interactive, modern interface">
+    <meta name="keywords" content="programming languages, hello world, coding examples, web development">
+    <meta name="author" content="Shaikh Minhaj">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+
+    <title>🌍 Hello World - All Programming Languages | Interactive Code Explorer</title>
+
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Custom Properties for consistent theming */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --bg-overlay: rgba(15, 32, 39, 0.95);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Modern CSS Reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            /* Loading animation */
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Enhanced container with glass morphism effect */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        /* Header section with enhanced typography */
+        .header {
+            text-align: center;
+            padding: 4rem 0 3rem;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 200px;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h1 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 0.8s ease-out 0.2s both;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 400;
+            animation: slideUp 0.8s ease-out 0.4s both;
+            line-height: 1.7;
+        }
+
+        /* Enhanced button container */
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-lg);
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        /* Modern button styling */
+        .language-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: var(--primary-gradient);
+            color: var(--text-primary);
+            padding: 0.875rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.025em;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            overflow: hidden;
+            min-height: 48px;
+            font-family: 'Inter', sans-serif;
+            box-shadow: var(--shadow-md);
+
+            /* Shine effect */
+            &::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+                transform: rotate(45deg);
+                transition: var(--transition);
+                opacity: 0;
+            }
+
+            &:hover::before {
+                animation: shine 0.6s ease-out;
+                opacity: 1;
+            }
+
+            &:hover {
+                background: var(--secondary-gradient);
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: var(--shadow-xl);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
+
+            &:active {
+                transform: translateY(-1px) scale(0.98);
+            }
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        /* Enhanced footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.8s ease-out 0.8s both;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer-link {
+            background: var(--accent-gradient);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .footer-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header {
+                padding: 3rem 0 2rem;
+            }
+
+            .button-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 0.75rem;
+                padding: 1.5rem;
+                margin: 2rem auto 0;
+            }
+
+            .language-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+                min-height: 44px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .button-container {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 0.5rem;
+                padding: 1rem;
+            }
+
+            .language-btn {
+                padding: 0.625rem 0.75rem;
+                font-size: 0.8rem;
+                min-height: 40px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .language-btn::before {
+                display: none;
+            }
+        }
+
+        @media (prefers-contrast: high) {
+            .language-btn {
+                border: 2px solid var(--text-primary);
+                background: #000080;
+            }
+
+            .language-btn:hover {
+                background: #000060;
+            }
+        }
+
+        /* Focus styles for keyboard navigation */
+        .language-btn:focus {
+            outline: 3px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        .language-btn:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        .language-btn:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .language-btn {
+                background: #f0f0f0;
+                color: black;
+                box-shadow: none;
+            }
+        }
+
+        /* Dark mode preference support */
+        @media (prefers-color-scheme: light) {
+            :root {
+                --text-primary: #1a202c;
+                --text-secondary: #4a5568;
+                --text-muted: #718096;
+                --bg-overlay: rgba(255, 255, 255, 0.9);
+            }
+
+            body {
+                background:
+                    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
+                    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
+            }
+
+            .button-container {
+                background: rgba(255, 255, 255, 0.8);
+                border-color: rgba(0, 0, 0, 0.1);
+            }
+
+            .language-btn {
+                color: white;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <header class="header">
+            <h1>🌍 Hello World - All Programming Languages</h1>
+            <p class="subtitle">
+                Discover the beauty of "Hello World" across 30+ programming languages.
+                Click any language to explore its unique implementation on GitHub.
+            </p>
+        </header>
 
-<h1>🌎 Hello World - All Programming Languages</h1>
-<p>Select your preferred language to view the Hello World program on GitHub.</p>
+        <main>
+            <div class="button-container">
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank" class="language-btn">C</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank" class="language-btn">C++</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank" class="language-btn">C#</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank" class="language-btn">Java</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank" class="language-btn">Python</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank" class="language-btn">JavaScript</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank" class="language-btn">PHP</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank" class="language-btn">Go</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank" class="language-btn">Swift</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank" class="language-btn">R</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank" class="language-btn">Ruby</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank" class="language-btn">Perl</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank" class="language-btn">Shell</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank" class="language-btn">Visual Basic</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank" class="language-btn">VBA</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank" class="language-btn">Dart</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank" class="language-btn">Lua</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank" class="language-btn">Kotlin</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank" class="language-btn">TypeScript</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank" class="language-btn">Groovy</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank" class="language-btn">SQL</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank" class="language-btn">F#</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank" class="language-btn">Objective-C</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank" class="language-btn">Julia</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank" class="language-btn">TCL</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank" class="language-btn">Elm</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank" class="language-btn">PowerShell</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank" class="language-btn">Rust</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank" class="language-btn">Algorithmic</a>
+                <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank" class="language-btn">CoffeeScript</a>
+            </div>
+        </main>
 
-<div class="button-container">
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank">C</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank">C++</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank">C#</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank">Java</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank">Python</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank">JavaScript</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank">PHP</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank">Go</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank">Swift</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank">R</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank">Ruby</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank">Perl</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank">Shell</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank">Visual Basic</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank">VBA</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank">Dart</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank">Lua</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank">Kotlin</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank">TypeScript</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank">Groovy</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank">SQL</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank">F#</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank">Objective-C</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank">Julia</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank">TCL</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank">Elm</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank">PowerShell</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank">Rust</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank">Algorithmic</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank">CoffeeScript</a>
-</div>
+        <footer class="footer">
+            <div class="footer-content">
+                <span>✨ Crafted with passion by</span>
+                <a href="https://github.com/minhaj-313" target="_blank" class="footer-link">
+                    Shaikh Minhaj
+                </a>
+                <span>• Part of Hacktoberfest 2025 💻</span>
+            </div>
+        </footer>
+    </div>
 
-<footer>
-  <p>✨ Created by <strong><a href="https://github.com/minhaj-313" target="_blank" style="color:#4db8ff;text-decoration:none;">Shaikh Minhaj</a></strong> | Part of Hacktoberfest 2025 💻</p>
-</footer>
+    <!-- Easter egg for developers -->
+    <script>
+        // Add some interactive fun
+        document.querySelectorAll('.language-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Create ripple effect on click
+                const ripple = document.createElement('span');
+                const rect = btn.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
 
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+
+                btn.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Konami code easter egg
+        let konami = [];
+        const code = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'KeyB', 'KeyA'
+        ];
+
+        document.addEventListener('keydown', (e) => {
+            konami.push(e.code);
+            if (konami.length > code.length) {
+                konami.shift();
+            }
+
+            if (konami.join('') === code.join('')) {
+                document.body.style.animation = 'rainbow 2s linear infinite';
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes rainbow {
+                        0% { filter: hue-rotate(0deg); }
+                        100% { filter: hue-rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    style.remove();
+                }, 4000);
+
+                konami = [];
+            }
+        });
+    </script>
+
+    <style>
+        /* Additional styles for JavaScript features */
+        .language-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 </html>
