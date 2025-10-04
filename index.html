@@ -3,324 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello World - All Languages 🌐</title>
+<title>Hello World - All Languages 🌍</title>
 <style>
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+  /* Base Styles */
+  * {
     margin: 0;
     padding: 0;
-    transition: all 0.5s ease;
-    background: linear-gradient(135deg, #1e1f29, #3a3d5c);
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    min-height: 100vh;
   }
 
-  /* HEADER */
-  header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-  }
-
-  header h1 { font-size: 1.9em; color: #a5d6ff; margin: 0; }
-
-  .search-bar input {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 12px;
-    font-size: 1em;
-    background: rgba(255, 255, 255, 0.1);
+  /* Header Styles */
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
     color: #fff;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    animation: fadeInDown 0.8s ease-out;
   }
 
-  .search-bar input:focus { background: rgba(255,255,255,0.2); width: 280px; outline:none; }
-
-  .theme-switch {
-    cursor: pointer;
-    font-size: 1.5em;
-    padding: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+  p {
+    font-size: 1.1em;
+    color: #cbd5e0;
+    margin-bottom: 50px;
+    animation: fadeInUp 0.8s ease-out;
   }
-  .theme-switch:hover { background: rgba(255,255,255,0.2); }
 
-  /* MAIN SECTION */
-  main { text-align: center; padding: 60px 20px; }
-  main h2 { font-size: 2.2em; color: #ffd6a5; margin-bottom: 10px; }
-  main p { font-size: 1.1em; color: #ccc; margin-bottom: 40px; }
-
+  /* Button Container */
   .button-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    animation: fadeIn 1s ease-out;
   }
 
-  .lang-btn {
+  /* Modern Button Styles */
+  a {
+    /* Base button styling */
     position: relative;
-    display: inline-block;
-    padding: 14px 26px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.25) 0%, rgba(118, 75, 162, 0.25) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     color: #fff;
-    font-weight: 600;
+    padding: 16px 24px;
+    border-radius: 12px;
     text-decoration: none;
-    font-size: 1em;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+    font-weight: 600;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Prevent text selection on double-click */
+    user-select: none;
+    -webkit-user-select: none;
   }
 
-  .lang-btn::before {
+  /* Shimmer effect overlay */
+  a::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #ff85a2, #a5ffd6, #85a2ff, #ffea85);
-    animation: rotate 4s linear infinite;
-    z-index: 0;
-    opacity: 0.6;
-    border-radius: 16px;
-    filter: blur(40px);
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transition: left 0.5s ease;
   }
 
-  @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-  .lang-btn span { position: relative; z-index: 1; }
-  .lang-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
+  /* Hover Effects */
+  a:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, rgba(118, 75, 162, 0.35) 0%, rgba(102, 126, 234, 0.35) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
 
-  /* CONTRIBUTORS SECTION */
-#contributors-section {
-  padding: 50px 20px;
-  text-align: center;
-}
+  a:hover::before {
+    left: 100%;
+  }
 
-#contributors-section h2 {
-  font-size: 2em;
-  color: #ffd6a5;
-  margin-bottom: 10px;
-}
+  /* Active/Click Effect */
+  a:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
+  }
 
-#contributors-section p {
-  font-size: 1em;
-  color: #ccc;
-  margin-bottom: 30px;
-}
+  /* Focus state for accessibility */
+  a:focus {
+    outline: 3px solid rgba(102, 126, 234, 0.6);
+    outline-offset: 3px;
+  }
 
-#contributors {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: start;
-}
-
-.contributor {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 140px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(12px);
-  padding: 15px;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contributor:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.45);
-}
-
-.contributor img {
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  margin-bottom: 10px;
-  object-fit: cover;
-}
-
-.contributor span {
-  color: #ffd6a5;
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.95em;
-  word-wrap: break-word;
-}
-
-  /* FOOTER */
+  /* Footer Styles */
   footer {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    padding: 25px 15px;
-    text-align: center;
-    color: #ccc;
+    margin-top: 80px;
+    color: #a0aec0;
     font-size: 0.95em;
-    margin-top: 20px;
-    box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
-  }
-  
-/* RESPONSIVE TWEAKS */
-@media (max-width: 480px) {
-  #contributors {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
+    animation: fadeIn 1.2s ease-out;
   }
 
-  .contributor {
-    max-width: 120px;
-    padding: 12px;
+  footer a {
+    color: #4facfe;
+    text-decoration: none;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    font-weight: 600;
+    display: inline;
+    border-radius: 0;
+    transition: color 0.3s ease;
   }
 
-  .contributor img {
-    width: 60px;
-    height: 60px;
+  footer a:hover {
+    color: #667eea;
+    transform: none;
+    box-shadow: none;
   }
 
-  .contributor span {
-    font-size: 0.85em;
-  }
-}
-
-  footer a { color: #a5d6ff; text-decoration: none; font-weight: bold; }
-  footer a:hover { color: #ffd6a5; }
-  footer .heart { color: #ff4d6d; }
-
-  /* RESPONSIVE */
-  @media (max-width: 650px) {
-    header { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .search-bar input { width: 100%; }
-    .lang-btn { width: 100%; text-align: center; }
-    .contributor { width: 45%; }
+  footer a::before {
+    display: none;
   }
 
-  /* LIGHT THEME */
-  body.light { background: linear-gradient(135deg, #f3f4f6, #e2e8f0); color: #111; }
-  body.light header { background: rgba(255,255,255,0.8); }
-  body.light .search-bar input { background: rgba(0,0,0,0.05); color: #111; }
-  body.light .lang-btn { background: rgba(255,255,255,0.2); color: #111; }
-  body.light .contributor { background: rgba(255,255,255,0.2); color: #111; }
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2em;
+    }
+
+    p {
+      font-size: 1em;
+      margin-bottom: 40px;
+    }
+
+    .button-container {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      padding: 0 15px;
+    }
+
+    a {
+      padding: 14px 20px;
+      font-size: 0.9em;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.6em;
+    }
+
+    .button-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    a {
+      padding: 12px 16px;
+      font-size: 0.85em;
+      border-radius: 10px;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    a {
+      border: 2px solid #fff;
+    }
+  }
+
+  /* Reduced motion support for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>🌐 Hello World Programs</h1>
-  <div style="display:flex; gap:10px; align-items:center;">
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="🔍 Search language..." onkeyup="searchLanguages()">
-    </div>
-    <div class="theme-switch" onclick="toggleTheme()" id="themeToggle">🌙</div>
-  </div>
-</header>
+<h1>🌎 Hello World - All Programming Languages</h1>
+<p>Select your preferred language to view the Hello World program on GitHub.</p>
 
-<main>
-  <h2>Explore Hello World in Every Language</h2>
-  <p>Click any language below to view its "Hello World" program on GitHub.</p>
-
-
-  <div class="button-container" id="langButtons">
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank"><span>C</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank"><span>C++</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank"><span>C#</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank"><span>Java</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank"><span>Python</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank"><span>JavaScript</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank"><span>PHP</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank"><span>Go</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank"><span>Swift</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank"><span>R</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank"><span>Ruby</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank"><span>Perl</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank"><span>Shell</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank"><span>Visual Basic</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank"><span>VBA</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank"><span>Dart</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank"><span>Lua</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank"><span>Kotlin</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank"><span>TypeScript</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank"><span>Groovy</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank"><span>SQL</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank"><span>F#</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank"><span>Objective-C</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank"><span>Julia</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank"><span>TCL</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank"><span>Elm</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank"><span>PowerShell</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank"><span>Rust</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank"><span>Algorithmic</span></a>
-    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank"><span>CoffeeScript</span></a>
-  </div>
-</main>
-
-<!-- CONTRIBUTORS SECTION -->
-  <section id="contributors-section">
-    <h2>Contributors Shoutout ✨</h2>
-    <p>Big thanks to all the amazing contributors who made this project better!</p>
-    <div id="contributors"></div>
-  </section>
-</main>
+<div class="button-container">
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank" rel="noopener">C</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank" rel="noopener">C++</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank" rel="noopener">C#</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank" rel="noopener">Java</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank" rel="noopener">Python</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank" rel="noopener">JavaScript</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank" rel="noopener">PHP</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank" rel="noopener">Go</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank" rel="noopener">Swift</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank" rel="noopener">R</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank" rel="noopener">Ruby</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank" rel="noopener">Perl</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank" rel="noopener">Shell</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank" rel="noopener">Visual Basic</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank" rel="noopener">VBA</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank" rel="noopener">Dart</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank" rel="noopener">Lua</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank" rel="noopener">Kotlin</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank" rel="noopener">TypeScript</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank" rel="noopener">Groovy</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank" rel="noopener">SQL</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank" rel="noopener">F#</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank" rel="noopener">Objective-C</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank" rel="noopener">Julia</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank" rel="noopener">TCL</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank" rel="noopener">Elm</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank" rel="noopener">PowerShell</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank" rel="noopener">Rust</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank" rel="noopener">Algorithmic</a>
+  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank" rel="noopener">CoffeeScript</a>
+</div>
 
 <footer>
-  <p>Made with <span class="heart">❤️</span> for the Open Source Community | <a href="https://github.com/minhaj-313" target="_blank">Shaikh Minhaj</a> | Hacktoberfest 2025 💻</p>
+  <p>✨ Created by <a href="https://github.com/minhaj-313" target="_blank" rel="noopener">Shaikh Minhaj</a> | Part of Hacktoberfest 2025 💻</p>
 </footer>
-
-<script>
-  // SEARCH FUNCTION
-  function searchLanguages() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    let buttons = document.getElementById('langButtons').getElementsByTagName('a');
-    for (let i = 0; i < buttons.length; i++) {
-      let lang = buttons[i].textContent.toLowerCase();
-      buttons[i].style.display = lang.includes(input) ? 'inline-block' : 'none';
-    }
-  }
-
-  // THEME TOGGLE
-  function toggleTheme() {
-    const body = document.body;
-    body.classList.toggle('light');
-    const toggle = document.getElementById('themeToggle');
-    toggle.textContent = body.classList.contains('light') ? '☀️' : '🌙';
-  }
-
-  // FETCH CONTRIBUTORS FROM GITHUB API
-  async function fetchContributors() {
-    const repo = 'minhaj-313/Hello-World-All-Programs';
-    const url = `https://api.github.com/repos/${repo}/contributors`;
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      const container = document.getElementById('contributors');
-      data.forEach(user => {
-        const div = document.createElement('div');
-        div.className = 'contributor';
-        div.innerHTML = `<img src="${user.avatar_url}" alt="${user.login}">
-                         <span>${user.login}</span>`;
-        container.appendChild(div);
-      });
-    } catch (err) {
-      console.error('Error fetching contributors:', err);
-    }
-  }
-
-  fetchContributors();
-</script>
 
 </body>
 </html>
