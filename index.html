@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hello World - All Languages 🌐</title>
 <style>
-  /* BASE STYLING */
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -30,11 +29,7 @@
     z-index: 1000;
   }
 
-  header h1 {
-    font-size: 1.9em;
-    color: #a5d6ff;
-    margin: 0;
-  }
+  header h1 { font-size: 1.9em; color: #a5d6ff; margin: 0; }
 
   .search-bar input {
     padding: 10px 15px;
@@ -47,13 +42,8 @@
     transition: all 0.3s ease;
   }
 
-  .search-bar input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    width: 280px;
-  }
+  .search-bar input:focus { background: rgba(255,255,255,0.2); width: 280px; outline:none; }
 
-  /* THEME SWITCHER BUTTON */
   .theme-switch {
     cursor: pointer;
     font-size: 1.5em;
@@ -63,29 +53,13 @@
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
   }
-  .theme-switch:hover {
-    background: rgba(255,255,255,0.2);
-  }
+  .theme-switch:hover { background: rgba(255,255,255,0.2); }
 
   /* MAIN SECTION */
-  main {
-    text-align: center;
-    padding: 60px 20px;
-  }
+  main { text-align: center; padding: 60px 20px; }
+  main h2 { font-size: 2.2em; color: #ffd6a5; margin-bottom: 10px; }
+  main p { font-size: 1.1em; color: #ccc; margin-bottom: 40px; }
 
-  main h2 {
-    font-size: 2.2em;
-    color: #ffd6a5;
-    margin-bottom: 10px;
-  }
-
-  main p {
-    font-size: 1.1em;
-    color: #ccc;
-    margin-bottom: 40px;
-  }
-
-  /* BUTTON CONTAINER */
   .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -93,7 +67,6 @@
     gap: 16px;
   }
 
-  /* GLASSMORPHIC BUTTONS */
   .lang-btn {
     position: relative;
     display: inline-block;
@@ -125,21 +98,35 @@
     filter: blur(40px);
   }
 
-  @keyframes rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  .lang-btn span { position: relative; z-index: 1; }
+  .lang-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 12px 36px rgba(0,0,0,0.45); }
+
+  /* CONTRIBUTORS SECTION */
+  #contributors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 20px;
   }
 
-  .lang-btn span {
-    position: relative;
-    z-index: 1;
+  .contributor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
   }
 
-  .lang-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.45);
-    color: #fff;
-  }
+  .contributor:hover { transform: scale(1.05); }
+  .contributor img { border-radius: 50%; width: 60px; height: 60px; margin-bottom: 10px; }
+  .contributor span { color: #ffd6a5; font-weight: 600; text-align: center; font-size: 0.9em; }
 
   /* FOOTER */
   footer {
@@ -149,56 +136,28 @@
     text-align: center;
     color: #ccc;
     font-size: 0.95em;
-    margin-top: 50px;
+    margin-top: 20px;
     box-shadow: 0 -4px 30px rgba(0,0,0,0.3);
   }
 
-  footer a {
-    color: #a5d6ff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  footer a:hover {
-    color: #ffd6a5;
-  }
-
-  footer .heart {
-    color: #ff4d6d;
-  }
+  footer a { color: #a5d6ff; text-decoration: none; font-weight: bold; }
+  footer a:hover { color: #ffd6a5; }
+  footer .heart { color: #ff4d6d; }
 
   /* RESPONSIVE */
   @media (max-width: 650px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .search-bar input {
-      width: 100%;
-    }
-    .lang-btn {
-      width: 100%;
-      text-align: center;
-    }
+    header { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .search-bar input { width: 100%; }
+    .lang-btn { width: 100%; text-align: center; }
+    .contributor { width: 45%; }
   }
 
   /* LIGHT THEME */
-  body.light {
-    background: linear-gradient(135deg, #f3f4f6, #e2e8f0);
-    color: #111;
-  }
-  body.light header {
-    background: rgba(255,255,255,0.8);
-  }
-  body.light .search-bar input {
-    background: rgba(0,0,0,0.05);
-    color: #111;
-  }
-  body.light .lang-btn {
-    background: rgba(255,255,255,0.2);
-    color: #111;
-  }
+  body.light { background: linear-gradient(135deg, #f3f4f6, #e2e8f0); color: #111; }
+  body.light header { background: rgba(255,255,255,0.8); }
+  body.light .search-bar input { background: rgba(0,0,0,0.05); color: #111; }
+  body.light .lang-btn { background: rgba(255,255,255,0.2); color: #111; }
+  body.light .contributor { background: rgba(255,255,255,0.2); color: #111; }
 </style>
 </head>
 <body>
@@ -213,10 +172,10 @@
   </div>
 </header>
 
-
 <main>
   <h2>Explore Hello World in Every Language</h2>
   <p>Click any language below to view its "Hello World" program on GitHub.</p>
+
 
   <div class="button-container" id="langButtons">
     <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank"><span>C</span></a>
@@ -252,9 +211,18 @@
   </div>
 </main>
 
+<!-- CONTRIBUTORS SECTION -->
+  <section id="contributors-section">
+    <h2>Contributors Shoutout ✨</h2>
+    <p>Big thanks to all the amazing contributors who made this project better!</p>
+    <div id="contributors"></div>
+  </section>
+</main>
+
 <footer>
-  <p>Made with <span class="heart">❤️</span> for the Open Source Community | Hacktoberfest 2025 💻</p>
+  <p>Made with <span class="heart">❤️</span> for the Open Source Community | <a href="https://github.com/minhaj-313" target="_blank">Shaikh Minhaj</a> | Hacktoberfest 2025 💻</p>
 </footer>
+
 <script>
   // SEARCH FUNCTION
   function searchLanguages() {
@@ -273,6 +241,28 @@
     const toggle = document.getElementById('themeToggle');
     toggle.textContent = body.classList.contains('light') ? '☀️' : '🌙';
   }
+
+  // FETCH CONTRIBUTORS FROM GITHUB API
+  async function fetchContributors() {
+    const repo = 'minhaj-313/Hello-World-All-Programs';
+    const url = `https://api.github.com/repos/${repo}/contributors`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const container = document.getElementById('contributors');
+      data.forEach(user => {
+        const div = document.createElement('div');
+        div.className = 'contributor';
+        div.innerHTML = `<img src="${user.avatar_url}" alt="${user.login}">
+                         <span>${user.login}</span>`;
+        container.appendChild(div);
+      });
+    } catch (err) {
+      console.error('Error fetching contributors:', err);
+    }
+  }
+
+  fetchContributors();
 </script>
 
 </body>
