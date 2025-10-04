@@ -9,86 +9,184 @@
     font-family: "Segoe UI", Arial, sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
     color: #fff;
-    text-align: center;
-    padding: 50px 20px;
+    margin: 0;
+    padding: 0;
   }
-  h1 {
-    font-size: 2.2em;
+
+  /* HEADER */
+  header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+    color: #4db8ff;
+    margin: 0;
+  }
+
+  .search-bar input {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    width: 220px;
+    font-size: 1em;
+    transition: 0.3s;
+  }
+
+  .search-bar input:focus {
+    outline: none;
+    width: 280px;
+  }
+
+  /* MAIN SECTION */
+  main {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  main h2 {
+    font-size: 2em;
     margin-bottom: 10px;
   }
-  p {
+
+  main p {
     font-size: 1.1em;
     color: #ccc;
     margin-bottom: 40px;
   }
+
+  /* BUTTONS */
   .button-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 14px;
   }
-  a {
-    display: inline-block;
-    background-color: #007bff;
+
+  .lang-btn {
+    background: linear-gradient(45deg, #007bff, #00b4d8);
     color: #fff;
-    padding: 12px 20px;
+    padding: 12px 22px;
     border-radius: 10px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
-  a:hover {
-    background-color: #0056b3;
+
+  .lang-btn:hover {
+    background: linear-gradient(45deg, #00b4d8, #007bff);
     transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
   }
+
+  /* FOOTER */
   footer {
-    margin-top: 50px;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 25px 15px;
     color: #aaa;
-    font-size: 0.9em;
+    font-size: 0.95em;
+    margin-top: 50px;
+  }
+
+  footer a {
+    color: #4db8ff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  footer a:hover {
+    color: #fff;
+  }
+
+  footer .heart {
+    color: #ff4d4d;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .search-bar input {
+      width: 100%;
+    }
   }
 </style>
 </head>
 <body>
 
-<h1>🌎 Hello World - All Programming Languages</h1>
-<p>Select your preferred language to view the Hello World program on GitHub.</p>
+<header>
+  <h1>🌎 Hello World Programs</h1>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="🔍 Search language..." onkeyup="searchLanguages()">
+  </div>
+</header>
 
-<div class="button-container">
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank">C</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank">C++</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank">C#</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank">Java</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank">Python</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank">JavaScript</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank">PHP</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank">Go</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank">Swift</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank">R</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank">Ruby</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank">Perl</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank">Shell</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank">Visual Basic</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank">VBA</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank">Dart</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank">Lua</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank">Kotlin</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank">TypeScript</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank">Groovy</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank">SQL</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank">F#</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank">Objective-C</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank">Julia</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank">TCL</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank">Elm</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank">PowerShell</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank">Rust</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank">Algorithmic</a>
-  <a href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank">CoffeeScript</a>
-</div>
+<main>
+  <h2>Explore Hello World in Every Language</h2>
+  <p>Select a language below to view its Hello World program on GitHub.</p>
+
+  <div class="button-container" id="langButtons">
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c.c" target="_blank">C</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%2B%2B.cpp" target="_blank">C++</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-c%23.cs" target="_blank">C#</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-java.java" target="_blank">Java</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-python.py" target="_blank">Python</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-js.js" target="_blank">JavaScript</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-php.php" target="_blank">PHP</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-go.go" target="_blank">Go</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-swift.swift" target="_blank">Swift</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-r.r" target="_blank">R</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-rb.rb" target="_blank">Ruby</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-pl.pl" target="_blank">Perl</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sh.sh" target="_blank">Shell</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vb.vb" target="_blank">Visual Basic</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-vba.vba" target="_blank">VBA</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-dart.dart" target="_blank">Dart</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-lua.lua" target="_blank">Lua</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-kotlin.kt" target="_blank">Kotlin</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ts.ts" target="_blank">TypeScript</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-groovy.groovy" target="_blank">Groovy</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-sql.sql" target="_blank">SQL</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-fs.fs" target="_blank">F#</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-m.m" target="_blank">Objective-C</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-jl.jl" target="_blank">Julia</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-tcl.tcl" target="_blank">TCL</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-elm.elm" target="_blank">Elm</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld-ps1.ps1" target="_blank">PowerShell</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.rs" target="_blank">Rust</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.alg" target="_blank">Algorithmic</a>
+    <a class="lang-btn" href="https://github.com/minhaj-313/Hello-World-All-Programs/blob/main/helloworld.coffee" target="_blank">CoffeeScript</a>
+  </div>
+</main>
 
 <footer>
-  <p>✨ Created by <strong><a href="https://github.com/minhaj-313" target="_blank" style="color:#4db8ff;text-decoration:none;">Shaikh Minhaj</a></strong> | Part of Hacktoberfest 2025 💻</p>
+  <p>Made with <span class="heart">❤</span> for the Open Source Community | Hacktoberfest 2025 🌸</p>
 </footer>
+
+<script>
+function searchLanguages() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const buttons = document.querySelectorAll('.lang-btn');
+  buttons.forEach(btn => {
+    const text = btn.textContent.toLowerCase();
+    btn.style.display = text.includes(input) ? "inline-block" : "none";
+  });
+}
+</script>
 
 </body>
 </html>
