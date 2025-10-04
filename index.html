@@ -11,40 +11,192 @@
     color: #fff;
     text-align: center;
     padding: 50px 20px;
+    min-height: 100vh;
   }
+
   h1 {
     font-size: 2.2em;
     margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
+
   p {
     font-size: 1.1em;
     color: #ccc;
     margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
   .button-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
+
+  /* Enhanced Button Styling */
   a {
     display: inline-block;
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    border-radius: 10px;
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    border: 2px solid transparent;
+    overflow: hidden;
+    min-width: 120px;
   }
+
+  /* Button hover effects */
   a:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
   }
+
+  /* Active state */
+  a:active {
+    transform: translateY(-2px) scale(0.98);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  }
+
+  /* Button ripple effect */
+  a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  a:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Enhanced footer styling */
   footer {
     margin-top: 50px;
     color: #aaa;
     font-size: 0.9em;
+  }
+
+  footer a {
+    background: linear-gradient(135deg, #4db8ff 0%, #2196f3 100%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-transform: none;
+    letter-spacing: normal;
+    min-width: auto;
+    box-shadow: 0 2px 8px rgba(77, 184, 255, 0.3);
+  }
+
+  footer a:hover {
+    background: linear-gradient(135deg, #2196f3 0%, #4db8ff 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(77, 184, 255, 0.4);
+  }
+
+  /* Responsive design improvements */
+  @media (max-width: 768px) {
+    .button-container {
+      gap: 12px;
+    }
+
+    a {
+      padding: 12px 20px;
+      font-size: 0.9em;
+      min-width: 100px;
+    }
+
+    h1 {
+      font-size: 1.8em;
+    }
+
+    p {
+      font-size: 1em;
+      padding: 0 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .button-container {
+      gap: 10px;
+    }
+
+    a {
+      padding: 10px 16px;
+      font-size: 0.85em;
+      min-width: 90px;
+    }
+
+    body {
+      padding: 30px 15px;
+    }
+  }
+
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    a {
+      transition: none;
+    }
+
+    a:hover {
+      transform: none;
+    }
+
+    a::before {
+      display: none;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    a {
+      border: 2px solid #ffffff;
+      background: #000080;
+    }
+
+    a:hover {
+      background: #000060;
+      border-color: #ffffff;
+    }
+  }
+
+  /* Focus states for keyboard navigation */
+  a:focus {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+  }
+
+  a:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  a:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
   }
 </style>
 </head>
@@ -87,7 +239,7 @@
 </div>
 
 <footer>
-  <p>✨ Created by <strong><a href="https://github.com/minhaj-313" target="_blank" style="color:#4db8ff;text-decoration:none;">Shaikh Minhaj</a></strong> | Part of Hacktoberfest 2025 💻</p>
+  <p>✨ Created by <strong><a href="https://github.com/minhaj-313" target="_blank">Shaikh Minhaj</a></strong> | Part of Hacktoberfest 2025 💻</p>
 </footer>
 
 </body>
